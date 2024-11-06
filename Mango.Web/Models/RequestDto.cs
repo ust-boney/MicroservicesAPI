@@ -1,4 +1,5 @@
 ﻿using Mango.Web.Utility;
+using static Mango.Web.Utility.StandardUtility;
 
 namespace Mango.Web.Models
 {

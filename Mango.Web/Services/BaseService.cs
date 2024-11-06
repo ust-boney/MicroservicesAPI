@@ -4,6 +4,7 @@ using Mango.Web.Utility;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
+using static Mango.Web.Utility.StandardUtility;
 
 namespace Mango.Web.Services
 {
@@ -20,7 +21,7 @@ namespace Mango.Web.Services
             {
                 HttpClient httpClient = _httpClientFactory.CreateClient("Mango");
                 HttpRequestMessage message = new();
-                message.Headers.Add("Content-Type", "application/json");
+              //  message.Headers.Add("content-type", "application/json");
                 message.RequestUri = new Uri(requestDto.Url);
                 if (requestDto.Data != null)
                 {
