@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Mango.Services.CouponAPI.Controllers
 {
-    [Route("api/Coupon")]
+    [Route("api/coupon")]
     [ApiController]
     public class CouponAPIController : ControllerBase
     {
@@ -132,7 +132,7 @@ namespace Mango.Services.CouponAPI.Controllers
             return _responseDto;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public ResponseDto DeleteCoupon(int id)
         {
             try

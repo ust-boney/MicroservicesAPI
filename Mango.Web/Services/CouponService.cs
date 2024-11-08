@@ -62,12 +62,12 @@ namespace Mango.Web.Services
             });
         }
 
-        public async Task<ResponseDto?> DeleteCouponsAsync(int couponId)
+        public async Task<ResponseDto?> DeleteCouponsAsync(int id)
         {
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = StandardUtility.ApiType.DELETE,
-                Url = StandardUtility.CouponAPIBase + "/api/Coupon/" + couponId,
+                Url = StandardUtility.CouponAPIBase + "/api/Coupon/" + id,
             });
         }
     }
