@@ -46,7 +46,7 @@ namespace Mango.Services.AuthAPI.Controllers
             return Ok(_responseDto);
         }
 
-        [HttpPost("AssignRole")]
+        [HttpPost("assignrole")]
         public async Task<IActionResult> AssignRole([FromBody] RegistrationRequestDto model)
         {
           var assignRoleSuccessful = await _authService.AssignRole(model.Email, model.Role);
