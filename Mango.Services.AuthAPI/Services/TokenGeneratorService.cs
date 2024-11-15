@@ -16,7 +16,7 @@ namespace Mango.Services.AuthAPI.Services
         {
             _jwtOptions = jwtOptions.Value;
         }
-        public string GenerateToken(ApplicationUser applicationUser)
+        public string GenerateToken(ApplicationUser applicationUser, IEnumerable<string> roles)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_jwtOptions.Secret.ToString());
@@ -26,6 +26,8 @@ namespace Mango.Services.AuthAPI.Services
                 new Claim(JwtRegisteredClaimNames.Name,applicationUser.UserName),
                 new Claim(JwtRegisteredClaimNames.Sub,applicationUser.Id)
             };
+            claimList.AddRange(roles.Select(role=> new Claim(ClaimTypes.Role,role)));
+
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
                 Issuer = _jwtOptions.Issuer,

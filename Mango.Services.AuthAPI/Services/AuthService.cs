@@ -42,7 +42,9 @@ namespace Mango.Services.AuthAPI.Services
             {
                 // user and password is valid
                 // if user was found generate token
-                string token = _tokenGeneratorService.GenerateToken(user);
+                // get all roles assigned to user and pass it for token generation
+                var roles = await _userManager.GetRolesAsync(user);
+                string token = _tokenGeneratorService.GenerateToken(user,roles);
                 UserDto userDto = new UserDto()
                 {
                     Email = user.UserName,
