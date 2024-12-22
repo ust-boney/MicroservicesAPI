@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Mango.Web.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ 
 </head>
 <body>
     <header>
@@ -30,10 +31,11 @@
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Coupon Management
+                                Content Management
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" asp-controller="Coupon" asp-action="Index">Coupon</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Index">Products</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                
                             </ul>
