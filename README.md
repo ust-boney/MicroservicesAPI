@@ -1,10 +1,10 @@
-Mango.Services.AuthAPI implements JWT token based authentication and it generates access token which used in authorization process.
+1. Mango.Services.AuthAPI implements JWT token based authentication and it generates access token which used in authorization process.
 
-Mango.Services.CouponAPI implements Coupon API service
+2. Mango.Services.CouponAPI implements Coupon API service
 
-Mango.Services.ProductAPI implements Product API service
+3. Mango.Services.ProductAPI implements Product API service
 
-Mango.Services.ShoppingCartAPI Shopping Cart API service
+4. Mango.Services.ShoppingCartAPI Shopping Cart API service
 
-Mango.Web front end application consumes the above webapi and produces the result.
+5. Mango.Web front end application consumes the above webapi and produces the result.
 
