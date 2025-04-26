@@ -76,6 +76,41 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
             return _responseDto;
         }
 
+        [HttpPost("RemoveCart")]
+        public async Task<ResponseDto> RemoveCart([FromBody] int cartDetailID)
+        {
+            try
+            {
+                // first fetch cart detail with cartdetailID and remove item from cartdetail table
+                // Check how many items are present in cartdetail with the same headerId of item to be removed
+                // if there is only one item with CartHeaderId then remove the item from CartHeader table
 
+                CartDetails cartDetails = _dbContext.CartDetails.First
+                    (u => u.CartDetailId == cartDetailID);
+                _dbContext.CartDetails.Remove(cartDetails);
+                if (cartDetails != null)
+                {
+
+                    // cart is empty add new record in cart header and cart details
+                    //CartHeader cartHeader = _mapper.Map<CartHeader>(cartDto.CartHeader);
+                    //_dbContext.CartHeaders.Add(cartHeader);
+                    //await _dbContext.SaveChangesAsync();
+
+                    //cartDto.CartDetails.First().CartHeaderId = cartHeader.CartHeaderId;
+                    //CartDetails cartDetails = _mapper.Map<CartDetails>(cartDto.CartDetails.First());
+                    //_dbContext.CartDetails.Add(cartDetails);
+                    //await _dbContext.SaveChangesAsync();
+                }
+
+                //_responseDto.Result = cartDto;
+                //_responseDto.IsSuccess = true;
+            }
+            catch (Exception ex)
+            {
+                _responseDto.Message = ex.Message.ToString();
+                _responseDto.IsSuccess = false;
+            }
+            return _responseDto;
+        }
     }
 }
